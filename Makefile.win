@@ -1,0 +1,29 @@
+# Project: Project2
+# Makefile created by Dev-C++ 5.3.0.4
+
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
+WINDRES  = windres.exe
+OBJ      = asdas.o $(RES)
+LINKOBJ  = asdas.o $(RES)
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc "../../../../../Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib32/libglu32.a" "../../../../../Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib32/libglut.a" "../../../../../Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib32/libglut32.a"  -g3
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include"
+BIN      = Project2.exe
+CXXFLAGS = $(CXXINCS)  -g3
+CFLAGS   = $(INCS)  -g3
+RM       = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+asdas.o: asdas.cpp
+	$(CPP) -c asdas.cpp -o asdas.o $(CXXFLAGS)
